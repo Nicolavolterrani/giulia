@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 Per Giulia 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef, #ff9a9e);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hearts-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 182, 193, 0.7);
+            font-size: 2rem;
+            animation: floatUp 8s linear infinite;
+        }
+
+        .container {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+            max-width: 90%;
+            animation: pulse 4s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-message {
+            color: #d63384;
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.4);
+            margin-bottom: 1rem;
+            animation: heartbeat 2s ease-in-out infinite;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+        }
+
+        .love-message {
+            color: #e91e63;
+            font-size: 2.8rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.5);
+            margin: 1.5rem 0;
+            animation: glow 3s ease-in-out infinite alternate;
+            font-family: 'Georgia', serif;
+        }
+
+        .big-heart {
+            font-size: 6rem;
+            color: #ff1744;
+            animation: heartPulse 1.5s ease-in-out infinite;
+            margin: 1rem 0;
+            filter: drop-shadow(0 0 20px rgba(255, 23, 68, 0.6));
+        }
+
+        .romantic-text {
+            color: #ad1457;
+            font-size: 1.4rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(173, 20, 87, 0.3);
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 1.5rem;
+            animation: sparkleFloat 4s linear infinite;
+        }
+
+        .rose {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: roseFloat 12s linear infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            14% {
+                transform: scale(1.1);
+            }
+            28% {
+                transform: scale(1);
+            }
+            42% {
+                transform: scale(1.1);
+            }
+            70% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heartPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.5);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(233, 30, 99, 0.8), 0 0 40px rgba(255, 105, 180, 0.6);
+            }
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+                transform: translateY(80vh) rotate(90deg) scale(1);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(20vh) rotate(270deg) scale(1);
+            }
+            100% {
+                transform: translateY(-20vh) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes roseFloat {
+            0% {
+                transform: translateX(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-message {
+                font-size: 2.5rem;
+            }
+            .love-message {
+                font-size: 2rem;
+            }
+            .big-heart {
+                font-size: 4rem;
+            }
+            .romantic-text {
+                font-size: 1.1rem;
+            }
+            .container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="hearts-bg" id="heartsBackground"></div>
+<div class="sparkles" id="sparkles"></div>
+
+<div class="container">
+    <div class="main-message">Giulia Sarri</div>
+    <div class="big-heart">💖</div>
+    <div class="love-message">Ti Amo</div>
+    <div class="big-heart">💕</div>
+    <div class="romantic-text">Con tutto il mio cuore</div>
+    <div style="margin-top: 2rem; font-size: 2rem;">
+        💝 🌹 💖 🌹 💝
+    </div>
+</div>
+
+<script>
+    // Crea cuori fluttuanti sullo sfondo
+    function createFloatingHearts() {
+        const heartsContainer = document.getElementById('heartsBackground');
+        const heartSymbols = ['💖', '💕', '💗', '💘', '💝', '💓', '💜', '🧡', '💛'];
+
+        for (let i = 0; i < 30; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 8 + 's';
+            heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            heartsContainer.appendChild(heart);
+        }
+    }
+
+    // Crea scintille romantiche
+    function createSparkles() {
+        const sparklesContainer = document.getElementById('sparkles');
+        const sparkleSymbols = ['✨', '⭐', '💫', '🌟'];
+
+        for (let i = 0; i < 25; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.textContent = sparkleSymbols[Math.floor(Math.random() * sparkleSymbols.length)];
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 4 + 's';
+            sparkle.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            sparklesContainer.appendChild(sparkle);
+        }
+    }
+
+    // Crea rose fluttuanti
+    function createRoses() {
+        const body = document.body;
+        const roseSymbols = ['🌹', '🌺', '🌸', '🌷'];
+
+        for (let i = 0; i < 15; i++) {
+            const rose = document.createElement('div');
+            rose.className = 'rose';
+            rose.textContent = roseSymbols[Math.floor(Math.random() * roseSymbols.length)];
+            rose.style.top = Math.random() * 100 + '%';
+            rose.style.animationDelay = Math.random() * 12 + 's';
+            rose.style.animationDuration = (Math.random() * 4 + 10) + 's';
+            rose.style.position = 'absolute';
+            rose.style.pointerEvents = 'none';
+            rose.style.zIndex = '1';
+            body.appendChild(rose);
+        }
+    }
+
+    // Aggiungi effetto click con cuori
+    function createClickHeart(e) {
+        const heart = document.createElement('div');
+        heart.textContent = '💖';
+        heart.style.position = 'absolute';
+        heart.style.left = e.clientX + 'px';
+        heart.style.top = e.clientY + 'px';
+        heart.style.fontSize = '2rem';
+        heart.style.color = '#ff1744';
+        heart.style.pointerEvents = 'none';
+        heart.style.zIndex = '1000';
+        heart.style.animation = 'heartPulse 1s ease-out forwards';
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 1000);
+    }
+
+    // Event listeners
+    document.addEventListener('click', createClickHeart);
+
+    // Inizializza tutte le animazioni
+    createFloatingHearts();
+    createSparkles();
+    createRoses();
+
+    // Rigenera periodicamente gli elementi per mantenerli sempre visibili
+    setInterval(() => {
+        createFloatingHearts();
+        createSparkles();
+    }, 15000);
+</script>
+</body>
+</html>
