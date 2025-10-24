@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💖 Per Giulia 💖</title>
+    <title>💖 Per Giulia💖</title>
     <style>
         * {
             margin: 0;
@@ -105,22 +105,60 @@
             animation: sparkleFloat 4s linear infinite;
         }
 
-        .rose {
+        .cupid {
             position: absolute;
-            font-size: 2.5rem;
-            animation: roseFloat 12s linear infinite;
+            font-size: 3rem;
+            z-index: 5;
+            pointer-events: none;
+            animation: cupidFloat 10s ease-in-out infinite;
+        }
+
+        .arrow {
+            position: absolute;
+            font-size: 2rem;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .explosion {
+            position: absolute;
+            font-size: 3rem;
+            z-index: 6;
+            pointer-events: none;
+            animation: explode 1s ease-out forwards;
+        }
+
+        .heart-trail {
+            position: absolute;
+            font-size: 1.5rem;
+            pointer-events: none;
+            z-index: 3;
+            animation: trailFade 2s ease-out forwards;
+        }
+
+        .rainbow-heart {
+            position: absolute;
+            font-size: 4rem;
+            pointer-events: none;
+            z-index: 7;
+            animation: rainbowSpin 3s linear infinite;
+        }
+
+        .love-wave {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 3px solid rgba(255, 105, 180, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2;
+            animation: waveExpand 2s ease-out forwards;
         }
 
         @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         @keyframes floatUp {
@@ -128,12 +166,8 @@
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
             100% {
                 transform: translateY(-100vh) rotate(360deg);
                 opacity: 0;
@@ -141,48 +175,26 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.02);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
 
         @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            14% {
-                transform: scale(1.1);
-            }
-            28% {
-                transform: scale(1);
-            }
-            42% {
-                transform: scale(1.1);
-            }
-            70% {
-                transform: scale(1);
-            }
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
         }
 
         @keyframes heartPulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.3);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
         }
 
         @keyframes glow {
-            from {
-                text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.5);
-            }
-            to {
-                text-shadow: 0 0 30px rgba(233, 30, 99, 0.8), 0 0 40px rgba(255, 105, 180, 0.6);
-            }
+            from { text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.5); }
+            to { text-shadow: 0 0 30px rgba(233, 30, 99, 0.8), 0 0 40px rgba(255, 105, 180, 0.6); }
         }
 
         @keyframes sparkleFloat {
@@ -204,57 +216,85 @@
             }
         }
 
-        @keyframes roseFloat {
-            0% {
-                transform: translateX(-100px) rotate(0deg);
-                opacity: 0;
+        @keyframes cupidFloat {
+            0%, 100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
             }
-            10% {
+            25% {
+                transform: translateY(-30px) translateX(20px) rotate(10deg);
+            }
+            50% {
+                transform: translateY(-50px) translateX(-20px) rotate(-10deg);
+            }
+            75% {
+                transform: translateY(-30px) translateX(10px) rotate(5deg);
+            }
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0.5);
                 opacity: 1;
             }
-            90% {
+            50% {
+                transform: scale(1.5);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes trailFade {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5) translateY(-50px);
+            }
+        }
+
+        @keyframes rainbowSpin {
+            0% {
+                filter: hue-rotate(0deg);
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.2);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        @keyframes waveExpand {
+            0% {
+                transform: scale(0);
                 opacity: 1;
             }
             100% {
-                transform: translateX(calc(100vw + 100px)) rotate(360deg);
+                transform: scale(3);
                 opacity: 0;
             }
         }
 
         @media (max-width: 768px) {
-            .main-message {
-                font-size: 2.5rem;
-            }
-            .love-message {
-                font-size: 2rem;
-            }
-            .big-heart {
-                font-size: 4rem;
-            }
-            .romantic-text {
-                font-size: 1.1rem;
-            }
-            .container {
-                padding: 2rem;
-            }
+            .main-message { font-size: 2.5rem; }
+            .love-message { font-size: 2rem; }
+            .big-heart { font-size: 4rem; }
+            .romantic-text { font-size: 1.1rem; }
+            .container { padding: 2rem; }
+        }
 
-
-            @media (min-width: 768px) {
-                .main-message {
-                    font-size: 4rem; /* Maggiore per desktop */
-                }
-                .love-message {
-                    font-size: 3rem; /* Maggiore per desktop */
-                }
-                .big-heart {
-                    font-size: 8rem; /* Maggiore per desktop */
-                }
-                .container {
-                    padding: 4rem;
-                }
-            }
-
-            
+        @media (min-width: 768px) {
+            .main-message { font-size: 4rem; }
+            .love-message { font-size: 3rem; }
+            .big-heart { font-size: 8rem; }
+            .container { padding: 4rem; }
         }
     </style>
 </head>
@@ -269,7 +309,6 @@
     <div class="big-heart">💕</div>
     <div class="romantic-text">Con tutto il mio cuore</div>
     
-    <!-- Inserisci l'immagine qui -->
     <div>
         <img src="https://nicolavolterrani.github.io/giulia/A_digital_illustration_features_a_romantic_scene_d.png" alt="Orsino e Panda" style="max-width: 80%; border-radius: 10px; margin-top: 2rem;"/>
     </div>
@@ -280,7 +319,9 @@
 </div>
 
 <script>
-    // Crea cuori fluttuanti sullo sfondo
+    const heartEmojis = ['💖', '💕', '💗', '💘', '💝', '💓'];
+    let leftCupid, rightCupid;
+
     function createFloatingHearts() {
         const heartsContainer = document.getElementById('heartsBackground');
         const heartSymbols = ['💖', '💕', '💗', '💘', '💝', '💓', '💜', '🧡', '💛'];
@@ -297,7 +338,6 @@
         }
     }
 
-    // Crea scintille romantiche
     function createSparkles() {
         const sparklesContainer = document.getElementById('sparkles');
         const sparkleSymbols = ['✨', '⭐', '💫', '🌟'];
@@ -313,58 +353,154 @@
         }
     }
 
-    // Crea rose fluttuanti
-    function createRoses() {
-        const body = document.body;
-        const roseSymbols = ['🌹', '🌺', '🌸', '🌷'];
+    function createFixedCupids() {
+        leftCupid = document.createElement('div');
+        leftCupid.className = 'cupid';
+        leftCupid.textContent = '💘';
+        leftCupid.style.left = '5%';
+        leftCupid.style.top = '50%';
+        leftCupid.style.fontSize = '5rem';
+        leftCupid.style.animation = 'cupidFloat 3s ease-in-out infinite';
+        document.body.appendChild(leftCupid);
 
-        for (let i = 0; i < 15; i++) {
-            const rose = document.createElement('div');
-            rose.className = 'rose';
-            rose.textContent = roseSymbols[Math.floor(Math.random() * roseSymbols.length)];
-            rose.style.top = Math.random() * 100 + '%';
-            rose.style.animationDelay = Math.random() * 12 + 's';
-            rose.style.animationDuration = (Math.random() * 4 + 10) + 's';
-            rose.style.position = 'absolute';
-            rose.style.pointerEvents = 'none';
-            rose.style.zIndex = '1';
-            body.appendChild(rose);
+        rightCupid = document.createElement('div');
+        rightCupid.className = 'cupid';
+        rightCupid.textContent = '💘';
+        rightCupid.style.left = '90%';
+        rightCupid.style.top = '50%';
+        rightCupid.style.fontSize = '5rem';
+        rightCupid.style.animation = 'cupidFloat 3s ease-in-out infinite 1.5s';
+        document.body.appendChild(rightCupid);
+    }
+
+    function shootArrow(fromX, fromY, toX, toY) {
+        const arrow = document.createElement('div');
+        arrow.className = 'arrow';
+        arrow.textContent = '💘';
+        arrow.style.left = fromX + 'px';
+        arrow.style.top = fromY + 'px';
+        
+        document.body.appendChild(arrow);
+
+        const deltaX = toX - fromX;
+        const deltaY = toY - fromY;
+        const angle = Math.atan2(deltaY, deltaX);
+        arrow.style.transform = `rotate(${angle}rad)`;
+
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        const duration = distance / 500;
+
+        arrow.animate([
+            { left: fromX + 'px', top: fromY + 'px' },
+            { left: toX + 'px', top: toY + 'px' }
+        ], {
+            duration: duration * 1000,
+            easing: 'ease-out'
+        });
+
+        setTimeout(() => {
+            arrow.remove();
+            createExplosion(toX, toY);
+        }, duration * 1000);
+    }
+
+    function createExplosion(x, y) {
+        const explosionHearts = ['💖', '💕', '💗', '💘', '💝', '✨', '💫', '⭐'];
+        
+        for (let i = 0; i < 12; i++) {
+            const explosion = document.createElement('div');
+            explosion.className = 'explosion';
+            explosion.textContent = explosionHearts[Math.floor(Math.random() * explosionHearts.length)];
+            explosion.style.left = x + 'px';
+            explosion.style.top = y + 'px';
+            
+            const angle = (Math.PI * 2 * i) / 12;
+            const distance = 80;
+            const endX = x + Math.cos(angle) * distance;
+            const endY = y + Math.sin(angle) * distance;
+            
+            document.body.appendChild(explosion);
+
+            explosion.animate([
+                { left: x + 'px', top: y + 'px', opacity: 1 },
+                { left: endX + 'px', top: endY + 'px', opacity: 0 }
+            ], {
+                duration: 1000,
+                easing: 'ease-out'
+            });
+
+            setTimeout(() => explosion.remove(), 1000);
+        }
+
+        const wave = document.createElement('div');
+        wave.className = 'love-wave';
+        wave.style.left = (x - 50) + 'px';
+        wave.style.top = (y - 50) + 'px';
+        document.body.appendChild(wave);
+        setTimeout(() => wave.remove(), 2000);
+    }
+
+    function createRainbowHeart(x, y) {
+        const heart = document.createElement('div');
+        heart.className = 'rainbow-heart';
+        heart.textContent = '💖';
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 3000);
+    }
+
+    function createHeartTrail(x, y) {
+        const trail = document.createElement('div');
+        trail.className = 'heart-trail';
+        trail.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+        trail.style.left = x + 'px';
+        trail.style.top = y + 'px';
+        document.body.appendChild(trail);
+
+        setTimeout(() => trail.remove(), 2000);
+    }
+
+    function handleClick(e) {
+        createRainbowHeart(e.clientX, e.clientY);
+        createExplosion(e.clientX, e.clientY);
+
+        if (leftCupid && rightCupid) {
+            const rect1 = leftCupid.getBoundingClientRect();
+            const rect2 = rightCupid.getBoundingClientRect();
+            
+            shootArrow(
+                rect1.left + rect1.width / 2,
+                rect1.top + rect1.height / 2,
+                rect2.left + rect2.width / 2,
+                rect2.top + rect2.height / 2
+            );
+            
+            setTimeout(() => {
+                shootArrow(
+                    rect2.left + rect2.width / 2,
+                    rect2.top + rect2.height / 2,
+                    rect1.left + rect1.width / 2,
+                    rect1.top + rect1.height / 2
+                );
+            }, 300);
         }
     }
 
-    // Aggiungi effetto click con cuori
-    function createClickHeart(e) {
-        const heart = document.createElement('div');
-        heart.textContent = '💖';
-        heart.style.position = 'absolute';
-        heart.style.left = e.clientX + 'px';
-        heart.style.top = e.clientY + 'px';
-        heart.style.fontSize = '2rem';
-        heart.style.color = '#ff1744';
-        heart.style.pointerEvents = 'none';
-        heart.style.zIndex = '1000';
-        heart.style.animation = 'heartPulse 1s ease-out forwards';
-
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, 1000);
+    let trailInterval;
+    function handleMouseMove(e) {
+        if (Math.random() > 0.9) {
+            createHeartTrail(e.clientX, e.clientY);
+        }
     }
 
-    // Event listeners
-    document.addEventListener('click', createClickHeart);
+    document.addEventListener('click', handleClick);
+    document.addEventListener('mousemove', handleMouseMove);
 
-    // Inizializza tutte le animazioni
     createFloatingHearts();
     createSparkles();
-    createRoses();
-
-    // Rigenera periodicamente gli elementi per mantenerli sempre visibili
-    setInterval(() => {
-        createFloatingHearts();
-        createSparkles();
-    }, 15000);
+    createFixedCupids();
 </script>
 </body>
 </html>
